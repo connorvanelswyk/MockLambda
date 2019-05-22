@@ -15,6 +15,9 @@ import lombok.experimental.NonFinal;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * <h1>Represents a Lambda execution environment by implementing the {@link Context} interface.</h1>
+ */
 @Data
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class MockContext implements Context {
@@ -33,9 +36,12 @@ public class MockContext implements Context {
 			logGroupName;
 
 	@NonFinal
-	Integer remainingTimeInMillis,
+	int remainingTimeInMillis,
 			memoryLimitInMB;
 
+	/**
+	 * Creates a new {@link MockContext} object and sets <code>private final</code> fields accordingly.
+	 */
 	public MockContext() {
 		remainingTimeInMillis = Integer.valueOf(System.getenv("TIME_LIMIT_IN_MILLIS"));
 		memoryLimitInMB = Integer.valueOf(System.getenv("MEMORY_LIMIT_IN_MB"));
@@ -45,6 +51,9 @@ public class MockContext implements Context {
 		logger = new MockLambdaLogger();
 	}
 
+	/**
+	 * @return a signed <code>Integer</code> eq to the sum of millis remaining until theoretical system termination.
+	 */
 	public int getRemainingTimeInMillis() {
 		return (int) ChronoUnit.MILLIS.between(Instant.now(), then);
 	}
