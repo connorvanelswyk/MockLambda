@@ -8,6 +8,8 @@ but also by supporting [dependency injection][di] through environment variables 
 
 In summary, this project enables local [TDD][tdd] practices while developing AWS Lambda functions.
 
+View the API Docs [here][api-docs].
+
   [ci-img]: https://api.travis-ci.com/connorvanelswyk/MockLambda.svg?branch=master
   [ci]: https://travis-ci.com/connorvanelswyk/MockLambda
   [coveralls-img]: https://coveralls.io/repos/github/connorvanelswyk/MockLambda/badge.svg?branch=master
@@ -16,3 +18,4 @@ In summary, this project enables local [TDD][tdd] practices while developing AWS
   [aws]: https://aws.amazon.com/
   [di]: https://en.wikipedia.org/wiki/Dependency_injection
   [tdd]: https://en.wikipedia.org/wiki/Test-driven_development
+  [api-docs]: https://htmlpreview.github.io/?https://raw.githubusercontent.com/connorvanelswyk/MockLambda/master/api/index.html
