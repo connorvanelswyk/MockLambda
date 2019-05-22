@@ -1,0 +1,4 @@
+lambda.client
+lambda.cognito
+lambda.context
+lambda.logger
