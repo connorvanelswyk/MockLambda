@@ -16,7 +16,8 @@ public class MockClientContext implements ClientContext {
 	Client client;
 
 	@NonFinal
-	Map<String, String> custom,
+	Map<String, String>
+			custom,
 			environment;
 
 	public MockClientContext() {
