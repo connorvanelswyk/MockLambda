@@ -1,4 +1,10 @@
+import lambda.context.MockContext;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Straight forward class materializing a suite of proofs to assert that our tests are correct and cover 100% of src.
@@ -21,7 +27,15 @@ import org.junit.Test;
  * <b>when</b> i plus 2 equals 5,
  * <b>then</b> i equals 3 (..is true).</p>
  */
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Tests {
+
+	MockContext mockContext;
+
+	@Before
+	public void before() {
+		mockContext = new MockContext();
+	}
 
 	/**
 	 * Confirm that a default implementation will not throw an NPE.
@@ -29,8 +43,27 @@ public class Tests {
 	 */
 	@Test
 	public void defaultMockContext_everyMethodVal_returnNotNull() {
+		assertNotNull(mockContext.getInvokedFunctionArn());
+		assertNotNull(mockContext.getFunctionVersion());
+		assertNotNull(mockContext.getLogStreamName());
+		assertNotNull(mockContext.getAwsRequestId());
+		assertNotNull(mockContext.getFunctionName());
+		assertNotNull(mockContext.getLogGroupName());
+		assertNotNull(mockContext.getClientContext());
+		assertNotNull(mockContext.getClientContext().getClient());
+		assertNotNull(mockContext.getClientContext().getClient().getInstallationId());
+		assertNotNull(mockContext.getClientContext().getClient().getAppTitle());
+		assertNotNull(mockContext.getClientContext().getClient().getAppVersionName());
+		assertNotNull(mockContext.getClientContext().getClient().getAppVersionCode());
+		assertNotNull(mockContext.getClientContext().getClient().getAppPackageName());
+		assertNotNull(mockContext.getClientContext().getCustom());
+		assertNotNull(mockContext.getClientContext().getEnvironment());
+		assertNotNull(mockContext.getIdentity());
+		assertNotNull(mockContext.getIdentity().getIdentityId());
+		assertNotNull(mockContext.getIdentity().getIdentityPoolId());
+		assertNotNull(mockContext.getLogger());
+		assertNotNull(mockContext.getThen());
 	}
-
 
 	/**
 	 * Test that a 5 second time allowance throws an exception 1 nanosecond after the limit.

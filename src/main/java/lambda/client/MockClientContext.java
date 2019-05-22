@@ -5,8 +5,8 @@ import com.amazonaws.services.lambda.runtime.ClientContext;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
-import lombok.experimental.NonFinal;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Data
@@ -14,14 +14,12 @@ import java.util.Map;
 public class MockClientContext implements ClientContext {
 
 	Client client;
-
-	@NonFinal
-	Map<String, String>
-			custom,
-			environment;
+	Map<String, String> custom, environment;
 
 	public MockClientContext() {
 		client = new MockClient();
+		custom = new HashMap<>();
+		environment = new HashMap<>();
 	}
 
 }

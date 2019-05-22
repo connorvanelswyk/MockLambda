@@ -55,8 +55,22 @@
                 <version>2.22.1</version>
                 <configuration>
                     <environmentVariables>
-                        <TIME_LIMIT_IN_MILLIS>15_000</TIME_LIMIT_IN_MILLIS>
+                        <TIME_LIMIT_IN_MILLIS>15000</TIME_LIMIT_IN_MILLIS>
                         <MEMORY_LIMIT_IN_MB>512</MEMORY_LIMIT_IN_MB>
+                        <INVOKED_FUNCTION_ARN>mock-lambda-invoked-function-arn</INVOKED_FUNCTION_ARN>
+                        <FUNCTION_VERSION>mock-lambda-function-version</FUNCTION_VERSION>
+                        <LOG_STREAM_NAME>mock-lambda-log-stream-name</LOG_STREAM_NAME>
+                        <AWS_REQUEST_ID>mock-lambda-aws-request-id</AWS_REQUEST_ID>
+                        <FUNCTION_NAME>mock-lambda-test</FUNCTION_NAME>
+                        <LOG_GROUP_NAME>mock-lambda-group-name</LOG_GROUP_NAME>
+                        <COGNITO_IDENTITY_POOL_ID>us-east-1:1699ebc0-7900-4099-b910-2df94f52a030
+                        </COGNITO_IDENTITY_POOL_ID>
+                        <COGNITO_IDENTITY_ID>us-east-1:OA-5599</COGNITO_IDENTITY_ID>
+                        <CLIENT_INSTALLATION_ID>mock-lambda-client-installation-id</CLIENT_INSTALLATION_ID>
+                        <CLIENT_APP_PACKAGE_NAME>mock-lambda-client-app-packaging-name</CLIENT_APP_PACKAGE_NAME>
+                        <CLIENT_APP_VERSION_NAME>mock-lambda-client-app-version-name</CLIENT_APP_VERSION_NAME>
+                        <CLIENT_APP_VERSION_CODE>mock-lambda-client-app-version-code</CLIENT_APP_VERSION_CODE>
+                        <CLIENT_APP_TITLE>mock-lambda-client-client-app-title</CLIENT_APP_TITLE>
                     </environmentVariables>
                 </configuration>
             </plugin>

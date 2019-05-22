@@ -10,7 +10,6 @@ import lambda.logger.MockLambdaLogger;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
-import lombok.experimental.NonFinal;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -27,7 +26,6 @@ public class MockContext implements Context {
 	LambdaLogger logger;
 	Instant then;
 
-	@NonFinal
 	String invokedFunctionArn,
 			functionVersion,
 			logStreamName,
@@ -35,7 +33,6 @@ public class MockContext implements Context {
 			functionName,
 			logGroupName;
 
-	@NonFinal
 	int remainingTimeInMillis,
 			memoryLimitInMB;
 
@@ -45,6 +42,12 @@ public class MockContext implements Context {
 	public MockContext() {
 		remainingTimeInMillis = Integer.valueOf(System.getenv("TIME_LIMIT_IN_MILLIS"));
 		memoryLimitInMB = Integer.valueOf(System.getenv("MEMORY_LIMIT_IN_MB"));
+		invokedFunctionArn = System.getenv("INVOKED_FUNCTION_ARN");
+		functionVersion = System.getenv("FUNCTION_VERSION");
+		logStreamName = System.getenv("LOG_STREAM_NAME");
+		awsRequestId = System.getenv("AWS_REQUEST_ID");
+		functionName = System.getenv("FUNCTION_NAME");
+		logGroupName = System.getenv("LOG_GROUP_NAME");
 		then = Instant.now().plus(remainingTimeInMillis, ChronoUnit.MILLIS);
 		clientContext = new MockClientContext();
 		identity = new MockCognitoIdentity();
